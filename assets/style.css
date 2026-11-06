@@ -14,3 +14,28 @@ a{color:var(--accent)}
 footer{color:var(--muted);font-size:.9rem;padding:48px 20px 32px}
 .preview-bar{background:#ffd60a;color:#000;text-align:center;padding:8px;font-weight:600;font-size:.9rem}
 ol li,ul li{margin:6px 0}
+.brand{display:flex;align-items:center;gap:10px}
+main.wide,header,footer{max-width:1040px}
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;padding:24px 0 48px}
+.app-icon{border-radius:22px;box-shadow:0 8px 24px rgba(0,0,0,.15);margin-top:32px}
+.hero h1{font-size:clamp(2.2rem,5vw,3.4rem);margin-top:20px}
+.badge{display:inline-flex;align-items:center;gap:10px;background:var(--fg);color:var(--bg);border-radius:12px;padding:10px 18px;text-decoration:none;font-weight:600;font-size:1.1rem;margin-top:12px;line-height:1.1}
+.badge small{display:block;font-size:.7rem;font-weight:400}
+.phone{justify-self:center;width:260px;border:10px solid #111;border-radius:44px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.25)}
+.phone img{display:block;width:100%}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;padding:24px 0}
+.feature{background:var(--card);border-radius:16px;padding:24px}
+.feature svg{width:32px;height:32px;fill:none;stroke:var(--accent);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.feature h3{margin:12px 0 6px}
+.feature p{margin:0;color:var(--muted);font-size:.95rem}
+.steps{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;counter-reset:s}
+.steps li{counter-increment:s;padding:20px;border:1px solid var(--card);border-radius:16px;color:var(--muted)}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;margin-bottom:10px}
+.steps b{display:block;color:var(--fg)}
+.prose{max-width:720px}
+.app-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.app-card{display:flex;gap:14px;align-items:center;background:var(--card);border-radius:16px;padding:16px}
+.app-card img{border-radius:13px}
+.app-card span{display:block;color:var(--muted);font-size:.9rem}
+.ph-icon{width:56px;height:56px;border-radius:13px;border:2px dashed var(--muted);opacity:.5}
+@media (max-width:760px){.hero{grid-template-columns:1fr}.phone{width:220px}}
