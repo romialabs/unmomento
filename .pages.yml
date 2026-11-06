@@ -1,0 +1,26 @@
+# Pages CMS (app.pagescms.org) editor setup.
+# Editors only change drafts. "Publish site" (GitHub Actions) copies drafts to the live site.
+media:
+  input: assets/images
+  output: /assets/images
+content:
+  - name: drafts
+    label: Pages (draft)
+    type: collection
+    path: drafts
+    view:
+      fields: [title, permalink]
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: description, label: Short description (for search results), type: string }
+      - { name: permalink, label: Web address, type: string, description: "Example: /about/ (must start and end with /)", required: true }
+      - { name: layout, type: string, hidden: true, default: default }
+      - { name: body, label: Content, type: rich-text }
+  - name: settings
+    label: Site settings
+    type: file
+    path: _data/settings.yml
+    format: yaml
+    fields:
+      - { name: company, label: Company name, type: string }
+      - { name: email, label: Support email, type: string }

@@ -1,0 +1,51 @@
+name: Deploy site
+# Builds the live site from pages/ and the preview from drafts/ (at /preview/).
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  workflow_call:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - id: pages
+        uses: actions/configure-pages@v5
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+      - run: gem install jekyll --no-document
+      - name: Build live site
+        run: jekyll build -s . -d "$RUNNER_TEMP/out" --baseurl "${{ steps.pages.outputs.base_path }}"
+      - name: Build preview
+        run: |
+          src="$RUNNER_TEMP/preview-src"
+          rsync -a --exclude .git ./ "$src/"
+          rm -rf "$src/pages" && cp -r drafts "$src/pages"
+          printf 'preview: true\n' > "$RUNNER_TEMP/preview.yml"
+          jekyll build -s "$src" -d "$RUNNER_TEMP/out/preview" \
+            --baseurl "${{ steps.pages.outputs.base_path }}/preview" \
+            --config "$src/_config.yml,$RUNNER_TEMP/preview.yml"
+          rm -f "$RUNNER_TEMP/out/preview/robots.txt"
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ runner.temp }}/out
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

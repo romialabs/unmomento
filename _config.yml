@@ -1,0 +1,3 @@
+title: Un Momento
+exclude: [drafts, README.md, .pages.yml]
+markdown: kramdown

@@ -1,0 +1,26 @@
+name: Publish site
+# The "Publish" button: copies the draft pages to the live site, then deploys.
+# Run it from the Actions tab > Publish site > Run workflow.
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+jobs:
+  copy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Copy drafts to live
+        run: |
+          rsync -a --delete drafts/ pages/
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A pages
+          if git diff --cached --quiet; then echo "Nothing new to publish."; exit 0; fi
+          git commit -m "Publish drafts to live site"
+          git push
+  deploy:
+    needs: copy
+    uses: ./.github/workflows/deploy.yml
