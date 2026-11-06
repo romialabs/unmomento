@@ -24,3 +24,4 @@ content:
     fields:
       - { name: company, label: Company name, type: string }
       - { name: email, label: Support email, type: string }
+      - { name: company_url, label: Company website, type: string }
