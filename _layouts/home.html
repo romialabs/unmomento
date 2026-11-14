@@ -4,24 +4,72 @@ layout: default
 {% assign img = '/assets/images/' | relative_url %}
 <section class="hero">
   <div class="hero-text">
-    <img class="app-icon" src="{{ img }}app-icon.svg" alt="Un Momento app icon" width="96" height="96">
-    <h1>Every play.<br>None of the waiting.</h1>
-    <p class="lead">Un Momento turns a full game video into clips of every live play, right on your iPhone. Dead time is cut out automatically and the clips land in Photos.</p>
+    <img class="app-icon" src="{{ img }}app-icon.png" alt="Un Momento app icon" width="96" height="96">
+    <h1>Every play.<br><span class="grad-text">None of the waiting.</span></h1>
+    <p class="lead">Drop in a full game video. Un Momento finds every play, numbers it and cuts out the dead time, right on your iPhone. Trim, tag and share in a few taps.</p>
     <a class="badge" href="#" aria-disabled="true"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M16.4 12.6c0-2.5 2-3.7 2.1-3.8-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.9-1.7 0-3.3 1-4.1 2.5-1.8 3.1-.5 7.6 1.3 10.1.8 1.2 1.8 2.6 3.1 2.5 1.3 0 1.7-.8 3.3-.8 1.5 0 1.9.8 3.3.8 1.4 0 2.2-1.2 3-2.5 1-1.4 1.3-2.7 1.4-2.8-.1 0-2.7-1-2.7-4zM13.9 5.2c.7-.8 1.1-1.9 1-3.1-1 0-2.2.7-2.9 1.5-.6.7-1.2 1.9-1 3 1.1.1 2.2-.6 2.9-1.4z"/></svg><span><small>Coming soon on the</small>App Store</span></a>
   </div>
-  <div class="phone"><img src="{{ img }}screenshot.svg" alt="Un Momento app screenshot"></div>
+  <div class="phone"><img src="{{ img }}screen-home.jpg" alt="Un Momento home screen: a big Add game videos button and a list of your games"></div>
+</section>
+
+<section class="demo" aria-labelledby="demo-h">
+  <h2 id="demo-h">See how it works</h2>
+  <div class="demo-wrap">
+    <div>
+      <ol class="demo-steps">
+        <li><button data-step="0" aria-current="true"><b>1. Add your game</b>Pick one video or a whole weekend of them from Photos.</button></li>
+        <li><button data-step="1"><b>2. It finds every play</b>Everything runs on your iPhone. No upload, no account, works offline.</button></li>
+        <li><button data-step="2"><b>3. Hop between plays</b>Every play is numbered. Jump between them, trim a few seconds, tag it 3PT or Kill.</button></li>
+        <li><button data-step="3"><b>4. Save one or all</b>Keep a single play or save every clip to Photos at once, ready to share.</button></li>
+      </ol>
+      <p class="demo-note">Illustration of the app. Footage shown is drawn, not real.</p>
+    </div>
+    <div class="dphone" role="img" aria-label="Animated mock of the Un Momento app">
+      <div class="scr on" data-scr="0">
+        <div class="s-un">UN</div><div class="s-title">Momento</div>
+        <div class="s-add"><i>+</i><div><b>Add game videos</b><small>Every play cut into its own clip.</small></div></div>
+        <div class="s-lbl">YOUR GAMES</div>
+        <div class="s-card"><div class="thumb" data-court="vb"></div><div><b>Volleyball · Sat 9:40</b><small>14 plays · 24:10</small></div></div>
+        <div class="s-card"><div class="thumb" data-court="bb"></div><div><b>Basketball · Fri 7:15</b><small>31 plays · 38:02</small></div></div>
+      </div>
+      <div class="scr" data-scr="1">
+        <div class="s-un">UN</div><div class="s-title">Momento</div>
+        <div class="s-lbl">YOUR GAMES</div>
+        <div class="s-card"><div class="thumb" data-court="bb"></div><div style="flex:1"><b>Basketball · Sun 2:05</b><small>Finding plays…</small><div class="bar"><span></span></div></div></div>
+        <div class="s-card"><div class="thumb" data-court="vb"></div><div><b>Volleyball · Sat 9:40</b><small>14 plays · 24:10</small></div></div>
+      </div>
+      <div class="scr" data-scr="2">
+        <div class="player"><div class="thumb" data-court="bb" style="width:100%;height:100%;border-radius:0"></div><div class="play"><i>▶</i></div></div>
+        <div class="tl"><span style="left:4%;width:6%"></span><span style="left:15%;width:9%"></span><span class="sel" style="left:30%;width:7%"></span><span style="left:45%;width:5%"></span><span style="left:58%;width:11%"></span><span style="left:76%;width:6%"></span><span style="left:88%;width:7%"></span></div>
+        <div class="chiprow"><span class="num">3</span><span class="chip">3PT ▾</span><small style="color:#A0A5B0">0:14</small><span style="margin-left:auto;color:#FF5A3C;font:700 12px system-ui">Trim</span></div>
+        <div class="grid2">
+          <div class="tile"><div class="thumb" data-court="bb"></div><span class="num dim">1</span><b>Layup</b></div>
+          <div class="tile"><div class="thumb" data-court="bb"></div><span class="num dim">2</span><b>Steal</b></div>
+          <div class="tile sel"><div class="thumb" data-court="bb"></div><span class="num">3</span><b>3PT</b></div>
+          <div class="tile"><div class="thumb" data-court="bb"></div><span class="num dim">4</span><b>Play</b></div>
+        </div>
+      </div>
+      <div class="scr" data-scr="3">
+        <div class="player"><div class="thumb" data-court="vb" style="width:100%;height:100%;border-radius:0"></div></div>
+        <div class="chiprow" style="margin-top:12px"><span class="num">7</span><span class="chip">Kill ▾</span><small style="color:#A0A5B0">0:09</small></div>
+        <div class="save">Save all 14 to Photos</div>
+        <div class="s-card" style="margin-top:10px"><div><b>Share play 7</b><small>Messages, AirDrop, team chat</small></div></div>
+        <div class="toast">✓ Saved 14 clips to Photos</div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="features">
-  <div class="feature"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h6"/><path d="M17 15l3 3-3 3"/></svg><h3>Finds every play</h3><p>On-device analysis spots live action and trims timeouts, stoppages and warm-ups.</p></div>
-  <div class="feature"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M8 6l1.5-2h5L16 6"/><circle cx="12" cy="12.5" r="3"/></svg><h3>Saves to Photos</h3><p>Clips go straight to your library, ready to share with family and the team.</p></div>
-  <div class="feature"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg><h3>Private by design</h3><p>No account, no uploads. Your videos are processed on your iPhone and never leave it.</p></div>
-  <div class="feature"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg><h3>Built for game day</h3><p>Basketball and volleyball first, tuned for gym footage shot from the sideline.</p></div>
+  <div class="feature"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h6"/><path d="M17 15l3 3-3 3"/></svg><h3>Finds every play</h3><p>Live action is kept and timeouts, stoppages and warm-ups are cut, all on your phone.</p></div>
+  <div class="feature"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="3"/><path d="M12 7h8M4 17h16M4 12h16"/></svg><h3>Numbered and tagged</h3><p>Every play gets a number. Tag the big ones (3PT, Steal, Kill, Ace) so they're easy to find.</p></div>
+  <div class="feature"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4v16M18 4v16M6 12h12"/></svg><h3>Trim in context</h3><p>See each play inside the whole game and nudge where it starts and ends.</p></div>
+  <div class="feature"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg><h3>Private and offline</h3><p>No account, no uploads. Your videos are processed on your iPhone and never leave it.</p></div>
 </section>
 
 <section class="how">
-  <h2>How it works</h2>
-  <ol class="steps"><li><b>Pick a video</b>Choose a full game from your library.</li><li><b>Let it work</b>Un Momento finds every play in minutes.</li><li><b>Save the clips</b>Keep the moments, skip the rest.</li></ol>
+  <h2>Coming next</h2>
+  <ol class="steps"><li><b>Condensed game</b>Every play stitched into one video, like a pro condensed game.</li><li><b>Highlight reel</b>The best moments in a 1 to 3 minute reel, ready to post.</li><li><b>Smarter tags</b>Made baskets, kills and aces tagged for you.</li></ol>
 </section>
 
 <section class="prose">{{ content }}</section>
@@ -29,7 +77,29 @@ layout: default
 <section class="apps">
   <h2>From <a href="{{ site.data.settings.company_url }}">{{ site.data.settings.company }}</a></h2>
   <div class="app-grid">
-    <div class="app-card"><img src="{{ img }}app-icon.svg" alt="" width="56" height="56"><div><b>Un Momento</b><span>Game clips, automatically</span></div></div>
+    <div class="app-card"><img src="{{ img }}app-icon.png" alt="" width="56" height="56"><div><b>Un Momento</b><span>Every play, none of the waiting</span></div></div>
     <div class="app-card placeholder"><div class="ph-icon"></div><div><b>More apps</b><span>Coming soon</span></div></div>
   </div>
 </section>
+
+<script>
+(() => {
+  const courts = {
+    bb: '<svg viewBox="0 0 160 90" preserveAspectRatio="xMidYMid slice"><rect width="160" height="90" fill="#c98f52"/><rect y="0" width="160" height="30" fill="#3b3f4a"/><path d="M0 30h160" stroke="#e9d3b4" stroke-width="1.2"/><path d="M50 30v60M110 30v60" stroke="#fff" stroke-opacity=".7"/><ellipse cx="80" cy="70" rx="26" ry="10" fill="none" stroke="#fff" stroke-opacity=".7"/><rect x="74" y="12" width="12" height="9" fill="none" stroke="#fff" stroke-width="1.2"/><circle cx="80" cy="23" r="3" fill="none" stroke="#FF5A3C" stroke-width="1.4"/><g fill="#1b1e27"><rect x="38" y="44" width="5" height="14" rx="2"/><rect x="62" y="48" width="5" height="15" rx="2"/><rect x="96" y="42" width="5" height="14" rx="2"/></g><g fill="#f5f6f8"><rect x="72" y="40" width="5" height="15" rx="2"/><rect x="118" y="50" width="5" height="15" rx="2"/></g><circle cx="88" cy="32" r="2.4" fill="#e86a2a"/></svg>',
+    vb: '<svg viewBox="0 0 160 90" preserveAspectRatio="xMidYMid slice"><rect width="160" height="90" fill="#d84a3a"/><rect width="160" height="34" fill="#d9dbe0"/><path d="M0 34h160" stroke="#9aa0aa"/><path d="M10 25h140" stroke="#fff" stroke-width="2"/><path d="M10 25v14M150 25v14" stroke="#333"/><path d="M0 80L50 40M160 80L110 40" stroke="#fff" stroke-opacity=".8"/><g fill="#1b1e27"><rect x="40" y="48" width="5" height="15" rx="2"/><rect x="70" y="52" width="5" height="16" rx="2"/><rect x="104" y="47" width="5" height="15" rx="2"/></g><g fill="#7a2a44"><rect x="58" y="36" width="4" height="10" rx="2"/><rect x="92" y="35" width="4" height="10" rx="2"/></g><circle cx="80" cy="16" r="2.6" fill="#f5f0e0"/></svg>'
+  };
+  document.querySelectorAll('.dphone [data-court]').forEach(el => { el.innerHTML = courts[el.dataset.court]; });
+  const btns = [...document.querySelectorAll('.demo-steps button')];
+  const scrs = [...document.querySelectorAll('.dphone .scr')];
+  let cur = 0, timer = null;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function show(i) {
+    cur = i;
+    scrs.forEach((s, k) => s.classList.toggle('on', k === i));
+    btns.forEach((b, k) => b.setAttribute('aria-current', k === i ? 'true' : 'false'));
+  }
+  function auto() { if (reduce) return; clearInterval(timer); timer = setInterval(() => show((cur + 1) % scrs.length), 4200); }
+  btns.forEach((b, i) => b.addEventListener('click', () => { show(i); auto(); }));
+  auto();
+})();
+</script>

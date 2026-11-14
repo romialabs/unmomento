@@ -21,3 +21,10 @@ Company name and support email live in **Site settings** (`_data/settings.yml`) 
 - `.github/workflows/`: `deploy.yml` builds live + preview; `publish.yml` is the Publish button
 
 Keep the privacy policy in sync with the app: if the app ever sends data off the device, update it first.
+
+## Images
+
+- `assets/images/app-icon.png`: the app icon (same as the app's 1024 px icon, scaled down).
+- `assets/images/screen-home.jpg`: real screenshot of the app's home screen (simulator, sample library).
+- The "See how it works" demo on the home page is drawn in HTML/CSS (`_layouts/home.html`), not real footage.
+  It shows only what the app does, never how it detects plays. Keep detection details out of this public repo.
